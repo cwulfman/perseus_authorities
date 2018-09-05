@@ -6,7 +6,7 @@ declare variable $collection external;
 
 declare function local:manifestations($collection) {
     for $mods at $n in collection($collection)//mods:mods
-    let $oclc := xs:string($mods/mods:identifier[@type = 'oclc'][1])
+    let $oclc := normalize-space($mods/mods:identifier[@type = 'oclc'][1])
     return
         <manifestation
             n="{$n}"
@@ -21,7 +21,7 @@ declare function local:manifestations($collection) {
                             for $expr in $work/mods:relatedItem[@otherType = 'expression']/mods:identifier[@type = 'ctsurn']
                             return
                                 <expression
-                                    id="{xs:string($expr)}"/>
+                                    id="{normalize-space($expr)}"/>
                         }
                     </work>
             }
