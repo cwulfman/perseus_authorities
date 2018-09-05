@@ -1,5 +1,5 @@
 # Perseus Authority Data
-	This repository contains metadata about authors, works, and expressions in the Perseus Catalog, derived from the AAE spreadsheets and then hand-corrected.
+This repository contains metadata about authors, works, and expressions in the Perseus Catalog, derived from the AAE spreadsheets and then hand-corrected.
 
 
 The repository includes a few utilities for re-generating the metadata from the AAE spreadsheets.
