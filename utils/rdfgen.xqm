@@ -111,23 +111,23 @@ declare function rdfgen:serialize-authors-rdf($authors) {
 };
 
 
-declare function rdfgen:serialize-expressions-rdf($dataset, $path) {
+declare function rdfgen:serialize-expressions-rdf($expressions) {
 <rdf:RDF
          xmlns:efrbroo="http://erlangen-crm.org/efrbroo/"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:owl="http://www.w3.org/2002/07/owl#">
-         { for $e in $dataset/expressions/expression return rdfgen:expression-rdf($e) }   
+         { for $e in $expressions return rdfgen:expression-rdf($e) }   
 </rdf:RDF>
 };
 
 
-declare function rdfgen:serialize-manifestations-rdf($dataset, $path) {
+declare function rdfgen:serialize-manifestations-rdf($manifestations) {
 <rdf:RDF
          xmlns:efrbroo="http://erlangen-crm.org/efrbroo/"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:owl="http://www.w3.org/2002/07/owl#">
-         { for $m in $dataset/manifestations/manifestation return rdfgen:manifestation-rdf($m) }
+         { for $m in $manifestations return rdfgen:manifestation-rdf($m) }
 </rdf:RDF>
 };

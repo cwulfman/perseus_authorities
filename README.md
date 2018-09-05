@@ -8,11 +8,11 @@ The repository includes a few utilities for re-generating the metadata from the 
 
 - Generate a knowledge base with basic RDFS inferences: 
 
-infer --rdfs=efrbroo.rdf expressions.rdf.xml people.rdf.xml works.rdf.xml manifestations.rdf.xml > pcat.nt
+infer --rdfs=efrbroo.rdf expressions.rdf.xml manifestations.rdf.xml works-greek.rdf.xml authors-greek.rdf.xml works-latin.rdf.xml authors-latin.rdf.xml > pcat.nt
 
 Load pcat.nt into a triple store.
 
-## How to Recreate these Data
+## How to Recreate these Data from the AAE spreadsheet
   * 	Download the Google Spreadsheet as xlsx
   * 	Convert it to xls format (can use Excel for this)
   * 	Use Oxygen to import the Greek worksheet as GreekAuthors.xml
@@ -28,4 +28,6 @@ Load pcat.nt into a triple store.
       * 	riot --validate works-latin.rdf.xml
       * 	riot --validate authors-latin.rdf.xml
 
-
+## How to Recreate the Expression and Manifestation Data from MODS
+	* java -cp saxon9he.jar net.sf.saxon.Query -q:"expressions-from-mods.xq" -o:expressions.rdf.xml collection="mods" \!indent=yes 
+	* java -cp saxon9he.jar net.sf.saxon.Query -q:"manifestations-from-mods.xq" -o:manifestations.rdf.xml collection="mods" \!indent=yes 	
