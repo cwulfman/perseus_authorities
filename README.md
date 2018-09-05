@@ -10,7 +10,10 @@ The repository includes a few utilities for re-generating the metadata from the 
 
 infer --rdfs=efrbroo.rdf expressions.rdf.xml manifestations.rdf.xml works-greek.rdf.xml authors-greek.rdf.xml works-latin.rdf.xml authors-latin.rdf.xml > pcat.nt
 
-Load pcat.nt into a triple store.
+Load pcat.nt into a triple store. E.g., for Fuseki:
+
+s-delete http://localhost:3030/perseus_catalog default
+s-post http://localhost:3030/perseus_catalog default pcat.nt
 
 ## How to Recreate these Data from the AAE spreadsheet
   * 	Download the Google Spreadsheet as xlsx
@@ -31,3 +34,4 @@ Load pcat.nt into a triple store.
 ## How to Recreate the Expression and Manifestation Data from MODS
 	* java -cp saxon9he.jar net.sf.saxon.Query -q:"expressions-from-mods.xq" -o:expressions.rdf.xml collection="mods" \!indent=yes 
 	* java -cp saxon9he.jar net.sf.saxon.Query -q:"manifestations-from-mods.xq" -o:manifestations.rdf.xml collection="mods" \!indent=yes 	
+
